@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Renewable Energy Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-leaf"></i> India Renewable Energy Hub
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#states" class="nav-link">States</a></li>
+                <li><a href="#sectors" class="nav-link">Sectors</a></li>
+                <li><a href="#news" class="nav-link">News</a></li>
+                <li><a href="#admin" class="nav-link">Admin Panel</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>India's Renewable Energy Revolution</h1>
+            <p>Explore sustainable energy across all states and sectors</p>
+            <button class="cta-btn" onclick="document.getElementById('states').scrollIntoView({behavior: 'smooth'})">
+                Explore Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-card">
+            <i class="fas fa-sun"></i>
+            <h3>Solar Capacity</h3>
+            <p id="solar-stat">70 GW</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-fan"></i>
+            <h3>Wind Capacity</h3>
+            <p id="wind-stat">45 GW</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-water"></i>
+            <h3>Hydro Capacity</h3>
+            <p id="hydro-stat">50 GW</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Total Capacity</h3>
+            <p id="total-stat">200 GW</p>
+        </div>
+    </section>
+
+    <!-- States Section -->
+    <section id="states" class="states-section">
+        <div class="container">
+            <h2>Renewable Energy by States</h2>
+            <div class="search-filter">
+                <input type="text" id="stateSearch" placeholder="Search state...">
+                <select id="sectorFilter">
+                    <option value="">All Sectors</option>
+                    <option value="solar">Solar</option>
+                    <option value="wind">Wind</option>
+                    <option value="hydro">Hydro</option>
+                    <option value="biomass">Biomass</option>
+                </select>
+            </div>
+            <div class="states-grid" id="statesGrid">
+                <!-- States will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectors Section -->
+    <section id="sectors" class="sectors-section">
+        <div class="container">
+            <h2>Energy Sectors Overview</h2>
+            <div class="sectors-grid">
+                <div class="sector-card">
+                    <i class="fas fa-sun"></i>
+                    <h3>Solar Energy</h3>
+                    <p>Leading renewable source with rapid growth across rooftop and utility-scale installations</p>
+                </div>
+                <div class="sector-card">
+                    <i class="fas fa-fan"></i>
+                    <h3>Wind Energy</h3>
+                    <p>Significant contribution from coastal and elevated regions with strong wind potential</p>
+                </div>
+                <div class="sector-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Hydro Energy</h3>
+                    <p>Stable baseload power from hydroelectric projects across river basins</p>
+                </div>
+                <div class="sector-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Biomass Energy</h3>
+                    <p>Sustainable energy from agricultural waste and biomass resources</p>
+                </div>
+                <div class="sector-card">
+                    <i class="fas fa-dungeon"></i>
+                    <h3>Geothermal</h3>
+                    <p>Emerging potential in geothermal hotspots for heating and power generation</p>
+                </div>
+                <div class="sector-card">
+                    <i class="fas fa-battery-full"></i>
+                    <h3>Energy Storage</h3>
+                    <p>Battery storage and grid-scale solutions for renewable integration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="container">
+            <h2>Latest Renewable Energy News</h2>
+            <div class="news-grid" id="newsGrid">
+                <!-- News will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Panel -->
+    <section id="admin" class="admin-section">
+        <div class="container">
+            <h2>Admin Panel</h2>
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="showTab('edit-news')">Edit News</button>
+                <button class="tab-btn" onclick="showTab('edit-states')">Edit States</button>
+                <button class="tab-btn" onclick="showTab('edit-stats')">Edit Stats</button>
+            </div>
+
+            <!-- Edit News Tab -->
+            <div id="edit-news" class="tab-content active">
+                <h3>Manage News Articles</h3>
+                <div class="form-group">
+                    <input type="text" id="newsTitle" placeholder="News Title">
+                    <textarea id="newsDescription" placeholder="News Description" rows="4"></textarea>
+                    <input type="date" id="newsDate">
+                    <select id="newsCategory">
+                        <option>Policy</option>
+                        <option>Technology</option>
+                        <option>Market</option>
+                        <option>State Initiative</option>
+                    </select>
+                    <button class="btn-primary" onclick="addNews()">Add News</button>
+                </div>
+                <div id="newsList" class="admin-list">
+                    <!-- Existing news will appear here -->
+                </div>
+            </div>
+
+            <!-- Edit States Tab -->
+            <div id="edit-states" class="tab-content">
+                <h3>Manage State Data</h3>
+                <div class="form-group">
+                    <input type="text" id="stateName" placeholder="State Name">
+                    <input type="number" id="solarCapacity" placeholder="Solar Capacity (GW)">
+                    <input type="number" id="windCapacity" placeholder="Wind Capacity (GW)">
+                    <input type="number" id="hydroCapacity" placeholder="Hydro Capacity (GW)">
+                    <input type="number" id="biomassCapacity" placeholder="Biomass Capacity (GW)">
+                    <textarea id="stateDescription" placeholder="State Description" rows="3"></textarea>
+                    <button class="btn-primary" onclick="addState()">Add/Update State</button>
+                </div>
+                <div id="statesList" class="admin-list">
+                    <!-- States list will appear here -->
+                </div>
+            </div>
+
+            <!-- Edit Stats Tab -->
+            <div id="edit-stats" class="tab-content">
+                <h3>Update Overall Statistics</h3>
+                <div class="form-group">
+                    <label>Solar Capacity (GW)</label>
+                    <input type="number" id="statSolar" placeholder="Solar">
+                    <label>Wind Capacity (GW)</label>
+                    <input type="number" id="statWind" placeholder="Wind">
+                    <label>Hydro Capacity (GW)</label>
+                    <input type="number" id="statHydro" placeholder="Hydro">
+                    <label>Total Capacity (GW)</label>
+                    <input type="number" id="statTotal" placeholder="Total">
+                    <button class="btn-primary" onclick="updateStats()">Update Statistics</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 India Renewable Energy Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
